@@ -1,3 +1,4 @@
+let r = document.querySelector(':root');
 let title = document.getElementById('title')
 let price = document.getElementById('price')
 let texes = document.getElementById('texes')
@@ -7,8 +8,9 @@ let total = document.getElementById('total')
 let count = document.getElementById('count')
 let category = document.getElementById('category')
 let submit = document.getElementById('submit')
-let mood = 'creat'
-let tmp
+let mood = 'creat' 
+let sitmod = 'light'
+
 // get totel 
 function gettotal(){
     if (price.value != ' '){
@@ -137,6 +139,24 @@ function update(i) {
         top: 0,
         behavior: 'smooth',
     })
+}
+function mod(){
+    if ( sitmod === 'light' ) {
+        console.log('done')
+        document.getElementById("mode").src = 'moon-light.svg'
+        r.style.setProperty('--color', '#000')
+        r.style.setProperty('--btn-color', '#bb86fc')
+        r.style.setProperty('--input-color','#222')
+        r.style.setProperty('--text-color','#fff')
+        sitmod = 'night'
+    }else{
+        document.getElementById("mode").src = 'moon.svg'
+        r.style.setProperty('--color', '#fff')
+        r.style.setProperty('--btn-color', '#6200ee')
+        r.style.setProperty('--input-color','#fff')
+        r.style.setProperty('--text-color','#000')
+        sitmod = 'light'
+    }
 }
 // search
 // let searchmood = 'title'
